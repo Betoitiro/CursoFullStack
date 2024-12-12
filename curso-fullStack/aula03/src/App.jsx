@@ -1,5 +1,6 @@
 
 import './App.css'
+import HookMegaSena from './components/HookMegaSena'
 import TodoList from './components/TodoList'
 //import HookContador from './components/HookContador'
 //import Mensagem from './components/Mensagem'
@@ -53,8 +54,11 @@ function App() {
         <Mensagem tipo={"erro"}/>
         </div>
         */}
-      {/* <HookContador />*/}
-      <TodoList/>
+      {/* <HookContador />
+            <TodoList/>
+      */}
+
+      <HookMegaSena/>
     </>
   )
 }
