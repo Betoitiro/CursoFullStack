@@ -15,8 +15,14 @@ const HookSorteadorDaQuina = () => {
         }
     }
   return (
-    <div>HookSorteadorDaQuina</div>
-  )
+    <div>
+        <h1>Sorteador da Mega em React</h1>
+
+        <button onClick={sortearNumero}>Sortear numero</button>
+
+        <h1>Ultimo numero sorteado: {numeroSorteado}</h1>
+        <h1>Sorteados: {numerosSorteados.join(" - ")}</h1>
+    </div>  )
 }
 
 export default HookSorteadorDaQuina
