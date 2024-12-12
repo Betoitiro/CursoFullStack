@@ -1,7 +1,9 @@
 
 import './App.css'
-import Mensagem from './components/Mensagem'
-import './App.css'
+import TodoList from './components/TodoList'
+//import HookContador from './components/HookContador'
+//import Mensagem from './components/Mensagem'
+//import './App.css'
 //import Adicao from './components/Adicao'
 //import CelsiusParaFahrenheint from './components/CelsiusParaFahrenheint'
 //import ListaDeLivros from './components/ListaDeLivros'
@@ -42,14 +44,17 @@ function App() {
       <ListaDeLivros livros={livros} />
      * 
      * 
-     */}
+    
 
       <div className='container'>
         <h1>Renderização condicional simples</h1>
         <Mensagem tipo={"sucesso"}/>
         <Mensagem tipo={"aviso"}/>
         <Mensagem tipo={"erro"}/>
-      </div>
+        </div>
+        */}
+      {/* <HookContador />*/}
+      <TodoList/>
     </>
   )
 }
