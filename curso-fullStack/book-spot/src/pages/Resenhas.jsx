@@ -6,18 +6,37 @@ const Resenhas = () => {
 
     /**
      * Pegar as resenhas do backend
-     * Esse useEffect vai ser execultado quando a pagina for carregada
+     * Esse useEffect vai ser execultado quando a pagina for carregada []
      */
 
-    useEffect(() =>{
-            axios.get("http://localhost:3000/resenhas")
+    useEffect(() => {
+        axios.get("http://localhost:3000/resenhas")
             .then(response => setResenhas(response.data))
-            .catch(error => console.error("Error ao consultar as resenhas"))
-    },[])
+            .catch(error => console.error("Error ao consultar as resenhas", error))
+    }, [])
 
-  return (
-    <div>Resenhas</div>
-  )
+    return (
+        <div>
+            <h1>Resenhas</h1>
+            {
+                resenhas.map(resenha => (
+                    <div key={resenha.id}>
+                        <a href={`/visualiza-resenha/${resenha.id}`}>
+                            <h2>
+                                {resenha.tituloLivro}
+                            </h2>
+                        </a>
+                        <h3>
+                            {resenha.autor}
+                        </h3>
+                        <p>
+                            {resenha.resumo}
+                        </p>
+                    </div>
+                ))
+            }
+        </div>
+    )
 }
 
 export default Resenhas
