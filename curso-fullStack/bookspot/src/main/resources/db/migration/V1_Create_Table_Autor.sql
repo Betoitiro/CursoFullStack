@@ -1,0 +1,5 @@
+CREATE TABLE t_autor (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    registro VARCHAR(255) NOT NULL
+);
