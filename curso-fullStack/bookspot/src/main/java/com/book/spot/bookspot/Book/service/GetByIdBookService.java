@@ -6,5 +6,5 @@ import java.util.Optional;
 
 @FunctionalInterface
 public interface GetByIdBookService {
-    Optional<GetByIdBookResponseDTO> findById( Long id);
+    Optional<GetByIdBookResponseDTO> findById(Long id);
 }

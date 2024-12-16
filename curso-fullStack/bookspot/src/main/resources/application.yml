@@ -23,3 +23,6 @@ spring:
     locations: classpath:db/migration
     ignore-migration-patterns: "*:ignored"
     baseline-on-migrate: true
+
+  server:
+    port: 8080

@@ -7,6 +7,7 @@ import com.book.spot.bookspot.Book.service.CreateBookService;
 import com.book.spot.bookspot.Book.service.GetAllBookService;
 import com.book.spot.bookspot.Book.service.GetByIdBookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -41,7 +42,7 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public Optional<GetByIdBookResponseDTO> findById(@PathVariable Long id){
+    public Optional<GetByIdBookResponseDTO> findById(@PathVariable Long id) {
         return getByIdBookService.findById(id);
     }
 }
