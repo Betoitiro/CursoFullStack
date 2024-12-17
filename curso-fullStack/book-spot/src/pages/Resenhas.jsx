@@ -23,9 +23,6 @@ const Resenhas = () => {
                     resenhas.map(resenha => (
                         <div key={resenha.id} className="bg-white shadow-lg rounded-lg overflow-hidden">
                             <Link to={`/visualiza-resenha/${resenha.id}`} className="block hover:bg-gray-50">
-                                <div className="h-56 bg-gray-200 flex justify-center items-center">
-                                    <img src="https://via.placeholder.com/150" alt={resenha.tituloLivro} className="max-h-full max-w-full object-contain" />
-                                </div>
                                 <div className="p-4">
                                     <h2 className="text-xl font-semibold text-gray-800 truncate">{resenha.tituloLivro}</h2>
                                     <h3 className="text-md text-gray-600 mt-1">{resenha.autor.name}</h3>
