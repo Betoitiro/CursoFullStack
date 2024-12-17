@@ -14,16 +14,16 @@ const VisualizaResenha = () => {
     */
 
     useEffect(() => {
-        axios.get(`http://localhost:3000/resenhas/${id}`)
+        axios.get(`http://localhost:8080/v1/book/${id}`)
         .then(response => setResenha(response.data))
         .catch(error => console.error("Erro ao carregar a resenha ", error))
     }, [id])
 
   return (
     <div>
-        <h2>{resenha.tituloLivro}</h2>
-        <h3>Por {resenha.autor}</h3>
-        <p>{resenha.conteudoCompleto}</p>
+        <h2>{resenha.titulo}</h2>
+        <h3>Por: {resenha.autor.name}</h3>
+        <p>{resenha.conteudo}</p>
     </div>
   )
 }
