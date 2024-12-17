@@ -11,7 +11,6 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <h1>BookSpot - Resenhas Literarias</h1>
         <Navbar/>
         <Routes>
           <Route path='/' element={<Inicial/>}/>

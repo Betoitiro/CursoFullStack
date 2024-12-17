@@ -24,8 +24,8 @@ const Resenhas = () => {
                         <div key={resenha.id} className="bg-white shadow-lg rounded-lg overflow-hidden">
                             <Link to={`/visualiza-resenha/${resenha.id}`} className="block hover:bg-gray-50">
                                 <div className="p-4">
-                                    <h2 className="text-xl font-semibold text-gray-800 truncate">{resenha.tituloLivro}</h2>
-                                    <h3 className="text-md text-gray-600 mt-1">{resenha.autor.name}</h3>
+                                <h3 className="text-md text-gray-600 mt-1">{resenha.titulo}</h3>
+                                <h3 className="text-md text-gray-600 mt-1">{resenha.autor.name}</h3>
                                     <p className="text-sm text-gray-500 mt-2">{resenha.resumo}</p>
                                 </div>
                             </Link>
