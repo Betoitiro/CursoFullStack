@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from '../../api/index'
-import { FaCheckCircle, FaEdit, FaExclamationTriangle, FaPlus, FaTrash } from 'react-icons/fa'
+  import { FaCheckCircle, FaEdit, FaExclamationTriangle, FaPlus, FaTrash } from 'react-icons/fa'
 import Modal from 'react-modal'
 
 const ClientList = () => {
-  const [clientes, setClientes] = useState([]) // Renomeado para clientes
-  const [clienteSelecionado, setClienteSelecionado] = useState(null) // Renomeado para clienteSelecionado
+  const [clientes, setClientes] = useState([]) 
+  const [clienteSelecionado, setClienteSelecionado] = useState(null) 
   const [modalAberto, setModalAberto] = useState(false)
   const [modalSucessoAberto, setModalSucessoAberto] = useState(false)
 
@@ -14,19 +14,19 @@ const ClientList = () => {
     axios.get("/clientes")
       .then(response => {
         console.log(response.data)
-        setClientes(response.data) // Atualizado para clientes
+        setClientes(response.data) 
       })
       .catch(error => console.error("Erro ao carregar os clientes ", error))
   }, [])
 
   const abrirModal = (cliente) => {
-    setClienteSelecionado(cliente) // Atualizado para clienteSelecionado
+    setClienteSelecionado(cliente) 
     setModalAberto(true)
   }
 
   const fecharModal = () => {
     setModalAberto(false)
-    setClienteSelecionado(null) // Atualizado para clienteSelecionado
+    setClienteSelecionado(null) 
   }
 
   const abrirModalSucesso = () => {
@@ -34,10 +34,10 @@ const ClientList = () => {
     setTimeout(() => setModalSucessoAberto(false), 2000)
   }
 
-  const removerCliente = () => { // Atualizado para removerCliente
-    axios.delete(`/clientes/${clienteSelecionado.id}`) // Atualizado para clienteSelecionado
+  const removerCliente = () => { 
+    axios.delete(`/clientes/${clienteSelecionado.id}`) 
       .then(() => {
-        setClientes(prevClientes => prevClientes.filter(cliente => cliente.id !== clienteSelecionado.id)) // Atualizado para clienteSelecionado
+        setClientes(prevClientes => prevClientes.filter(cliente => cliente.id !== clienteSelecionado.id)) 
         fecharModal()
         abrirModalSucesso()
       })
@@ -49,7 +49,7 @@ const ClientList = () => {
       <Link to="/add-cliente" className='btn btn-primary mb-2'><FaPlus className='icon' /> Adicionar Cliente</Link>
       <table className='table'>
         <thead>
-          <tr> {/* Corrigido: cabeçalho da tabela deve estar dentro de uma tag <tr> */}
+          <tr>
             <th>Nome</th>
             <th>CPF</th>
             <th>Email</th>
