@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from '../../api/index'
-import { FaCheckCircle, FaEdit, FaExclamationTriangle, FaPlus, FaTrash } from 'react-icons/fa'
+import {
+  FaCheckCircle, FaEdit, FaExclamationTriangle,
+  FaPlus, FaQuestionCircle, FaTrash
+} from 'react-icons/fa'
 import Modal from 'react-modal'
 
 const FornecedorList = () => {
@@ -9,6 +12,7 @@ const FornecedorList = () => {
   const [fornecedorSelecionado, setFornecedorSelecionado] = useState(null)
   const [modalAberto, setModalAberto] = useState(false)
   const [modalSucessoAberto, setModalSucessoAberto] = useState(false)
+  const [tooltipAberto, setTooltipAberto] = useState(false)
 
   useEffect(() => {
     axios.get("/fornecedores")
@@ -36,16 +40,28 @@ const FornecedorList = () => {
 
   const removerFornecedor = () => {
     axios.delete(`/fornecedores/${fornecedorSelecionado.id}`)
-    .then(()=>{
-      setFornecedores(prevFornecedores => prevFornecedores.filter
-        (fornecedor => fornecedor.id !== fornecedorSelecionado.id) )
+      .then(() => {
+        setFornecedores(prevFornecedores => prevFornecedores.filter
+          (fornecedor => fornecedor.id !== fornecedorSelecionado.id))
         fecharModal()
         abrirModalSucesso()
-    })
+      })
+  }
+
+  const toggleTooltip = () => {
+    setTooltipAberto(!tooltipAberto)
   }
   return (
     <div className='container mt-5'>
-      <h2 className='mb-4' style={{ position: 'relative' }}>Lista de Fornecedores</h2>
+      <h2 className='mb-4' style={{ position: 'relative' }}>Lista de Fornecedores
+        <FaQuestionCircle
+          className='tooltip-icon'
+          onClick={toggleTooltip}
+        />
+        {tooltipAberto && (<div className='tooltip'>
+          Aqui você pode visualizar, editar e excluir os fornecedores cadastrados.
+        </div>)}
+      </h2>
       <Link to="/add-fornecedores" className='btn btn-primary mb-2'><FaPlus className='icon' /> Adcionar Fornecedor</Link>
       <table className='table'>
         <thead>
