@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter} from 'react-router-dom'
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import FornecedorList from './pages/Fornecedore/FornecedorList'
 import ClientList from './pages/Cliente/ClientList'
 import ProdutoList from './pages/Produto/ProdutoList'
@@ -8,7 +8,9 @@ const App = () => {
   return (
     <div>
       <BrowserRouter>
-        <FornecedorForm/>
+        <Routes>
+          <Route path="/" element={<FornecedorForm />} />
+        </Routes>
       </BrowserRouter>
     </div>
   )
